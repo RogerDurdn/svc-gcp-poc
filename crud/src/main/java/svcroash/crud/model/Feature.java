@@ -1,5 +1,6 @@
 package svcroash.crud.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -15,6 +16,7 @@ public class Feature {
     private Long id;
     @ManyToOne
     @JoinColumn(name = "configuration_id", nullable = false)
+    @JsonBackReference
     private DomainConfiguration configuration;
     private String value;
     public Feature(String value){
