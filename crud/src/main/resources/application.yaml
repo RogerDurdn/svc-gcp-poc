@@ -1,0 +1,21 @@
+server:
+  port: 9090
+spring:
+  profiles:
+    active: test
+  datasource:
+    url: jdbc:postgresql://${HOSTNAME:localhost}:26257/postgres
+    username: root
+    password:
+    driver-class-name: org.postgresql.Driver
+  sql:
+    init:
+      mode: always
+  jpa:
+    hibernate:
+      ddl-auto: none
+    defer-datasource-initialization: true
+    show-sql: true
+loader:
+  configs: 100
+  features: 100
