@@ -1,13 +1,13 @@
-package svcclient.domain;
+package svcclient.client;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DomainApplication {
+public class ClientApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DomainApplication.class, args);
+		SpringApplication.run(ClientApplication.class, args);
 	}
 
 }
