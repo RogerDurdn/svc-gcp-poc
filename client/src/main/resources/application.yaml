@@ -1,7 +1,7 @@
 server:
   port: 9091
 consumer:
-  url: http://localhost:9090/all
+  url: http://${SERVICE_NAME:localhost}:9090/all
 spring:
   codec:
     max-in-memory-size: 10MB
