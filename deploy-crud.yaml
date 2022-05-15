@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: crud-svc
+  labels:
+    app: crud
+spec:
+  type: NodePort
+  ports:
+  - protocol: TCP
+    port: 9090
+    nodePort: 30000
+  selector:
+    app: crud
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crud-app
+spec:
+  selector:
+    matchLabels:
+      app: crud
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: crud
+    spec:
+      containers:
+      - name: crud
+        image: rogerdockerk8/cruda:v2
+        env:
+          - name: HOSTNAME
+            value: cockroachdb
+        ports:
+        - containerPort: 9090
